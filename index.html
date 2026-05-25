@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>NGONAROID // ENGINEERING THE FUTURE</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&amp;family=Inter:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-primary-container": "#007117",
+                    "outline-variant": "#3b4b37",
+                    "tertiary": "#edffe2",
+                    "on-primary-fixed": "#002203",
+                    "primary": "#ebffe2",
+                    "on-secondary-fixed-variant": "#005306",
+                    "outline": "#84967e",
+                    "on-tertiary-container": "#366d2c",
+                    "background": "#131313",
+                    "on-error": "#690005",
+                    "error-container": "#93000a",
+                    "on-background": "#e2e2e2",
+                    "surface-variant": "#353535",
+                    "on-error-container": "#ffdad6",
+                    "surface-bright": "#393939",
+                    "surface-container": "#1f1f1f",
+                    "inverse-primary": "#006e16",
+                    "on-tertiary-fixed": "#002200",
+                    "secondary-fixed": "#85fd75",
+                    "tertiary-container": "#afed9d",
+                    "surface-container-low": "#1b1b1b",
+                    "on-secondary": "#003a03",
+                    "on-secondary-container": "#003202",
+                    "tertiary-fixed": "#b5f3a2",
+                    "surface-container-high": "#2a2a2a",
+                    "on-tertiary-fixed-variant": "#1b5114",
+                    "surface-container-highest": "#353535",
+                    "surface-dim": "#131313",
+                    "tertiary-fixed-dim": "#99d688",
+                    "secondary-container": "#2ca62a",
+                    "on-primary": "#003907",
+                    "primary-fixed-dim": "#00e639",
+                    "surface": "#131313",
+                    "inverse-surface": "#e2e2e2",
+                    "primary-fixed": "#72ff70",
+                    "on-secondary-fixed": "#002201",
+                    "surface-tint": "#00e639",
+                    "on-primary-fixed-variant": "#00530e",
+                    "surface-container-lowest": "#0e0e0e",
+                    "secondary-fixed-dim": "#69df5c",
+                    "on-tertiary": "#003a00",
+                    "secondary": "#69df5c",
+                    "inverse-on-surface": "#303030",
+                    "on-surface": "#e2e2e2",
+                    "on-surface-variant": "#b9ccb2",
+                    "error": "#ffb4ab",
+                    "primary-container": "#00ff41"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0px",
+                    "lg": "0px",
+                    "xl": "0px",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "unit": "4px",
+                    "max-width": "1440px",
+                    "margin-mobile": "16px",
+                    "margin-desktop": "48px",
+                    "gutter": "24px"
+            },
+            "fontFamily": {
+                    "headline-md": ["JetBrains Mono"],
+                    "headline-xl": ["JetBrains Mono"],
+                    "headline-lg": ["JetBrains Mono"],
+                    "body-sm": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "label-sm": ["JetBrains Mono"],
+                    "label-md": ["JetBrains Mono"],
+                    "headline-xl-mobile": ["JetBrains Mono"],
+                    "body-md": ["Inter"]
+            },
+            "fontSize": {
+                    "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "headline-xl": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                    "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "label-sm": ["12px", {"lineHeight": "1", "fontWeight": "500"}],
+                    "label-md": ["14px", {"lineHeight": "1", "fontWeight": "500"}],
+                    "headline-xl-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #000000;
+            overflow-x: hidden;
+            color: #00FF41;
+        }
+
+        /* Scanline Effect */
+        body::before {
+            content: " ";
+            display: block;
+            position: fixed;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+            z-index: 9999;
+            background-size: 100% 2px, 3px 100%;
+            pointer-events: none;
+        }
+
+        /* Digital Rain Canvas */
+        #matrix-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.15;
+        }
+
+        .terminal-window {
+            border: 1px solid #008F11;
+            background-color: rgba(0, 0, 0, 0.85);
+            transition: all 0.3s ease;
+        }
+
+        .terminal-window:hover {
+            border-color: #00FF41;
+            box-shadow: 0 0 15px rgba(0, 255, 65, 0.4);
+        }
+
+        .terminal-header {
+            background-color: #003B00;
+            padding: 4px 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 10px;
+            color: #00FF41;
+            border-bottom: 1px solid #008F11;
+        }
+
+        .btn-primary {
+            background-color: #00FF41;
+            color: #000000;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 0px rgba(0, 255, 65, 0);
+        }
+
+        .btn-primary:hover {
+            box-shadow: 0 0 20px rgba(0, 255, 65, 0.8);
+            transform: translateY(-2px);
+        }
+
+        .glitch-text {
+            text-shadow: 0 0 8px rgba(0, 255, 65, 0.8);
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        .cursor {
+            display: inline-block;
+            width: 8px;
+            height: 20px;
+            background-color: #00FF41;
+            animation: blink 1s step-end infinite;
+            vertical-align: middle;
+            margin-left: 4px;
+        }
+
+        /* Material Icon overrides for Phosphor style */
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+            color: #00FF41;
+        }
+    </style>
+</head>
+<body class="dark selection:bg-on-primary-container selection:text-white">
+<canvas id="matrix-canvas"></canvas>
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 flex justify-between items-center px-12 py-4 bg-black/80 border-b border-outline-variant backdrop-blur-md">
+<div class="flex items-center gap-2">
+<span class="font-headline-md text-headline-md font-bold text-secondary drop-shadow-[0_0_8px_rgba(105,223,92,0.8)] tracking-tighter">NGONAROID</span>
+</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="font-label-md text-secondary font-bold border-b-2 border-secondary pb-1 transition-all duration-300 ease-in-out hover:drop-shadow-[0_0_5px_rgba(0,230,57,0.5)]" href="#">PLUGINS</a>
+<a class="font-label-md text-on-surface-variant hover:text-primary transition-all duration-300 ease-in-out hover:drop-shadow-[0_0_5px_rgba(0,230,57,0.5)]" href="#">MOBILE</a>
+<a class="font-label-md text-on-surface-variant hover:text-primary transition-all duration-300 ease-in-out hover:drop-shadow-[0_0_5px_rgba(0,230,57,0.5)]" href="#">WEB</a>
+<a class="font-label-md text-on-surface-variant hover:text-primary transition-all duration-300 ease-in-out hover:drop-shadow-[0_0_5px_rgba(0,230,57,0.5)]" href="#">AUTOMATION</a>
+<a class="font-label-md text-on-surface-variant hover:text-primary transition-all duration-300 ease-in-out hover:drop-shadow-[0_0_5px_rgba(0,230,57,0.5)]" href="#">AI</a>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined cursor-pointer hover:text-primary transition-all">terminal</span>
+<button class="bg-primary-container text-on-primary px-6 py-2 font-label-md font-bold hover:drop-shadow-[0_0_10px_rgba(0,255,65,0.6)] transition-all">LOGIN</button>
+</div>
+</nav>
+<main class="pt-24 pb-12">
+<!-- Hero Section -->
+<section class="min-h-[819px] flex flex-col justify-center items-center text-center px-margin-mobile md:px-margin-desktop">
+<div class="max-w-4xl">
+<p class="font-label-sm text-secondary mb-4 tracking-[0.4em] uppercase">System_Initialization: COMPLETED</p>
+<h1 class="font-headline-xl md:text-[64px] text-primary-container mb-6 leading-tight glitch-text">
+                    Engineering the Future of Software<span class="cursor"></span>
+</h1>
+<p class="font-body-lg text-on-surface-variant max-w-2xl mx-auto mb-10 border-l-2 border-secondary pl-6 text-left">
+                    We architect robust digital ecosystems. From neural automation to high-fidelity web interfaces, we decode complexity into seamless technological solutions.
+                </p>
+<div class="flex flex-col md:flex-row gap-6 justify-center">
+<button class="btn-primary px-10 py-4 font-headline-md tracking-tighter">INITIALIZE_PROJECT</button>
+<button class="border border-secondary text-secondary px-10 py-4 font-headline-md tracking-tighter hover:bg-on-secondary-fixed-variant/20 transition-all">VIEW_REPOSITORY</button>
+</div>
+</div>
+</section>
+<!-- Offerings Grid (Bento Style) -->
+<section class="px-margin-mobile md:px-margin-desktop py-16 max-w-max-width mx-auto">
+<div class="flex items-center gap-4 mb-12">
+<h2 class="font-headline-lg text-secondary uppercase tracking-widest">Core_Modules</h2>
+<div class="h-[1px] flex-grow bg-outline-variant"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Plugins (Featured) -->
+<div class="md:col-span-8 terminal-window group relative overflow-hidden">
+<div class="terminal-header">
+<div class="flex gap-1.5">
+<div class="w-2 h-2 rounded-full bg-red-900"></div>
+<div class="w-2 h-2 rounded-full bg-yellow-900"></div>
+<div class="w-2 h-2 rounded-full bg-green-900"></div>
+</div>
+<span>MODULE_01 // PLUGINS</span>
+</div>
+<div class="p-8 flex flex-col md:flex-row items-center gap-10">
+<div class="w-full md:w-1/2">
+<h3 class="font-headline-md text-primary-container mb-4">Extendable Architecture</h3>
+<p class="font-body-md text-on-surface-variant mb-6">Custom-built extension frameworks that integrate seamlessly into your existing stack, enhancing performance and scalability without breaking the source.</p>
+<span class="font-label-md text-secondary group-hover:underline cursor-pointer">READ_DOCUMENTATION &gt;</span>
+</div>
+<div class="w-full md:w-1/2 h-64 bg-surface-container flex items-center justify-center border border-outline-variant overflow-hidden">
+<img alt="Technical abstract" class="opacity-50 grayscale hover:grayscale-0 transition-all duration-500 w-full h-full object-cover" data-alt="A macro shot of glowing green circuitry and motherboard traces, illuminated in a dark tech-noir setting. The composition focuses on the geometric precision of the paths and nodes, with a soft phosphor bloom effect typical of 90s terminal displays. The overall mood is intense, technical, and reminiscent of the Matrix code stream, using deep blacks and electric greens." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAaY5OM43bfLy3TiEK9Pc-saaLce7cB4U1FwJBTFg9OQopmYgggic68LmhyB7pIp8gcjbxOV6-Cx0LWHPm1bFNmAVE2X8wOjH4yILMiht43mZvpkVtYY3cdStEXaCTQvi09XlEHuK7UcxfgcByR0NXmkeTbEOh1JRNl3ljfftXVXChTuvXO-SF_hrhCM1EGTsnbTqscFiinyZGBve5-FCloftJqQ0S8DEKR9GV9E8VAemynE9985QJU7S8u6TAp2N7AIn0LX4jyjSrn"/>
+</div>
+</div>
+</div>
+<!-- Mobile Apps -->
+<div class="md:col-span-4 terminal-window">
+<div class="terminal-header"><span>MODULE_02 // MOBILE</span></div>
+<div class="p-8">
+<span class="material-symbols-outlined text-4xl mb-4">smartphone</span>
+<h3 class="font-headline-md text-primary-container mb-2">Native_Flow</h3>
+<p class="font-body-sm text-on-surface-variant">High-performance mobile applications built for the human interface. Optimized for low latency and high security.</p>
+</div>
+</div>
+<!-- Web Apps -->
+<div class="md:col-span-4 terminal-window">
+<div class="terminal-header"><span>MODULE_03 // WEB</span></div>
+<div class="p-8">
+<span class="material-symbols-outlined text-4xl mb-4">language</span>
+<h3 class="font-headline-md text-primary-container mb-2">Web_Ecosystems</h3>
+<p class="font-body-sm text-on-surface-variant">Next-gen web platforms. We create immersive browser experiences that defy standard limitations.</p>
+</div>
+</div>
+<!-- Automation -->
+<div class="md:col-span-4 terminal-window">
+<div class="terminal-header"><span>MODULE_04 // AUTOMATION</span></div>
+<div class="p-8">
+<span class="material-symbols-outlined text-4xl mb-4">memory</span>
+<h3 class="font-headline-md text-primary-container mb-2">Neural_Ops</h3>
+<p class="font-body-sm text-on-surface-variant">Eliminate friction. Our automation scripts handle complex workflows with 99.9% precision.</p>
+</div>
+</div>
+<!-- AI Implementation -->
+<div class="md:col-span-4 terminal-window group bg-on-primary-container/5">
+<div class="terminal-header"><span>MODULE_05 // AI</span></div>
+<div class="p-8">
+<span class="material-symbols-outlined text-4xl mb-4" style="font-variation-settings: 'FILL' 1;">psychology</span>
+<h3 class="font-headline-md text-secondary mb-2">Machine_Intelligence</h3>
+<p class="font-body-sm text-on-surface-variant">Integrating LLMs and neural networks into your business logic. The future is self-optimizing.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Professional Expertise Section -->
+<section class="bg-surface-container-lowest/50 py-24 border-y border-outline-variant">
+<div class="px-margin-mobile md:px-margin-desktop max-w-max-width mx-auto">
+<div class="text-center mb-16">
+<h2 class="font-headline-xl text-primary-container mb-4">Professional_Expertise</h2>
+<p class="font-label-md text-outline tracking-widest">AUTHORIZED PERSONNEL ONLY // CLASSIFIED TECH</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+<!-- Custom Dev -->
+<div class="space-y-6">
+<div class="flex items-center gap-4">
+<span class="p-3 bg-on-secondary-fixed-variant/20 border border-secondary text-secondary">
+<span class="material-symbols-outlined">code</span>
+</span>
+<h4 class="font-headline-md text-secondary">Custom Development</h4>
+</div>
+<p class="font-body-md text-on-surface-variant leading-relaxed">
+                            Tailor-made codebases designed for high-load environments. We build systems that don't just work—they evolve with your data requirements.
+                        </p>
+<ul class="space-y-2 font-label-sm text-outline">
+<li>&gt; SCALABLE_BACKENDS</li>
+<li>&gt; LOW_LATENCY_APIS</li>
+<li>&gt; SECURE_DATA_BRIDGES</li>
+</ul>
+</div>
+<!-- Strategic Consulting -->
+<div class="space-y-6">
+<div class="flex items-center gap-4">
+<span class="p-3 bg-on-secondary-fixed-variant/20 border border-secondary text-secondary">
+<span class="material-symbols-outlined">visibility</span>
+</span>
+<h4 class="font-headline-md text-secondary">Strategic Consulting</h4>
+</div>
+<p class="font-body-md text-on-surface-variant leading-relaxed">
+                            Navigating the digital landscape requires foresight. We provide the blueprint for your next decade of technological growth.
+                        </p>
+<ul class="space-y-2 font-label-sm text-outline">
+<li>&gt; STACK_AUDITING</li>
+<li>&gt; ARCHITECTURAL_DESIGN</li>
+<li>&gt; RISK_MITIGATION</li>
+</ul>
+</div>
+<!-- Technical Support -->
+<div class="space-y-6">
+<div class="flex items-center gap-4">
+<span class="p-3 bg-on-secondary-fixed-variant/20 border border-secondary text-secondary">
+<span class="material-symbols-outlined">support_agent</span>
+</span>
+<h4 class="font-headline-md text-secondary">Technical Support</h4>
+</div>
+<p class="font-body-md text-on-surface-variant leading-relaxed">
+                            A system is only as strong as its uptime. Our support team operates on the edge, ensuring your infrastructure remains impenetrable.
+                        </p>
+<ul class="space-y-2 font-label-sm text-outline">
+<li>&gt; 24/7_SYSTEM_MONITORING</li>
+<li>&gt; RAPID_PATCH_DEPLOYMENT</li>
+<li>&gt; INFRASTRUCTURE_MAINTENANCE</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="py-32 px-margin-mobile md:px-margin-desktop text-center">
+<div class="max-w-3xl mx-auto border border-secondary p-12 relative">
+<!-- Decorative Corner Accents -->
+<div class="absolute -top-1 -left-1 w-4 h-4 border-t-2 border-l-2 border-primary-container"></div>
+<div class="absolute -top-1 -right-1 w-4 h-4 border-t-2 border-r-2 border-primary-container"></div>
+<div class="absolute -bottom-1 -left-1 w-4 h-4 border-b-2 border-l-2 border-primary-container"></div>
+<div class="absolute -bottom-1 -right-1 w-4 h-4 border-b-2 border-r-2 border-primary-container"></div>
+<h2 class="font-headline-xl text-primary-container mb-6 uppercase">Ready to enter the stream?</h2>
+<p class="font-body-lg text-on-surface-variant mb-10">Connect with our architects today to begin the transformation of your digital presence.</p>
+<div class="flex flex-col sm:flex-row gap-4 justify-center">
+<input class="bg-black border border-outline-variant text-secondary px-6 py-4 font-label-md focus:border-secondary focus:ring-0 focus:outline-none min-w-[300px]" placeholder="Enter_Terminal_Email..." type="email"/>
+<button class="btn-primary px-8 py-4 font-headline-md tracking-tighter">SUBMIT_REQUEST</button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-12 px-12 bg-surface-container-lowest border-t border-outline-variant flex flex-col md:flex-row justify-between items-center gap-6">
+<div class="flex flex-col items-center md:items-start gap-2">
+<span class="font-headline-md text-secondary">NGONAROID</span>
+<p class="font-label-sm text-outline uppercase tracking-wider">SYSTEM_USER@NGONAROID:~$ ALL_RIGHTS_RESERVED_2024</p>
+</div>
+<div class="flex gap-12">
+<a class="font-label-sm text-outline hover:text-primary transition-colors duration-150 uppercase tracking-tighter" href="#">ST_CONNECT</a>
+<a class="font-label-sm text-outline hover:text-primary transition-colors duration-150 uppercase tracking-tighter" href="#">SYS_LOGS</a>
+<a class="font-label-sm text-outline hover:text-primary transition-colors duration-150 uppercase tracking-tighter" href="#">S_MAP</a>
+</div>
+</footer>
+<script>
+        // Matrix Rain Animation
+        const canvas = document.getElementById('matrix-canvas');
+        const ctx = canvas.getContext('2d');
+
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const katakana = 'アァカサタナハマヤャラワガザダバパイィキシチニヒミリヰギジヂビピウゥクスツヌフムユュルグズブヅプエェケセテネヘメレヱゲゼデベペオォコソトノホモヨョロヲゴゾドボポヴッン';
+        const latin = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        const nums = '0123456789';
+        const alphabet = katakana + latin + nums;
+
+        const fontSize = 16;
+        const columns = canvas.width / fontSize;
+
+        const rainDrops = [];
+
+        for (let x = 0; x < columns; x++) {
+            rainDrops[x] = 1;
+        }
+
+        const draw = () => {
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            ctx.fillStyle = '#0F0';
+            ctx.font = fontSize + 'px JetBrains Mono';
+
+            for (let i = 0; i < rainDrops.length; i++) {
+                const text = alphabet.charAt(Math.floor(Math.random() * alphabet.length));
+                ctx.fillText(text, i * fontSize, rainDrops[i] * fontSize);
+
+                if (rainDrops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                    rainDrops[i] = 0;
+                }
+                rainDrops[i]++;
+            }
+        };
+
+        setInterval(draw, 30);
+
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+
+        // Hover effect for interactive modules
+        const windows = document.querySelectorAll('.terminal-window');
+        windows.forEach(win => {
+            win.addEventListener('mouseenter', () => {
+                const header = win.querySelector('.terminal-header');
+                if(header) header.style.backgroundColor = '#005306';
+            });
+            win.addEventListener('mouseleave', () => {
+                const header = win.querySelector('.terminal-header');
+                if(header) header.style.backgroundColor = '#003B00';
+            });
+        });
+    </script>
+</body></html>
