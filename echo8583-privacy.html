@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Privacy Policy - echo 8583 | NGONAROID</title>
+    <meta name="description" content="Privacy Policy for echo 8583 - ISO 8583 Message Parser Android Application. Learn how echo 8583 handles data and user privacy."/>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-primary-container": "#007117",
+                    "outline-variant": "#3b4b37",
+                    "tertiary": "#edffe2",
+                    "on-primary-fixed": "#002203",
+                    "primary": "#ebffe2",
+                    "on-secondary-fixed-variant": "#005306",
+                    "outline": "#84967e",
+                    "on-tertiary-container": "#366d2c",
+                    "background": "#131313",
+                    "on-error": "#690005",
+                    "error-container": "#93000a",
+                    "on-background": "#e2e2e2",
+                    "surface-variant": "#353535",
+                    "on-error-container": "#ffdad6",
+                    "surface-bright": "#393939",
+                    "surface-container": "#1f1f1f",
+                    "inverse-primary": "#006e16",
+                    "on-tertiary-fixed": "#002200",
+                    "secondary-fixed": "#85fd75",
+                    "tertiary-container": "#afed9d",
+                    "surface-container-low": "#1b1b1b",
+                    "on-secondary": "#003a03",
+                    "on-secondary-container": "#003202",
+                    "tertiary-fixed": "#b5f3a2",
+                    "surface-container-high": "#2a2a2a",
+                    "on-tertiary-fixed-variant": "#1b5114",
+                    "surface-container-highest": "#353535",
+                    "surface-dim": "#131313",
+                    "tertiary-fixed-dim": "#99d688",
+                    "secondary-container": "#2ca62a",
+                    "on-primary": "#003907",
+                    "primary-fixed-dim": "#00e639",
+                    "surface": "#131313",
+                    "inverse-surface": "#e2e2e2",
+                    "primary-fixed": "#72ff70",
+                    "on-secondary-fixed": "#002201",
+                    "surface-tint": "#00e639",
+                    "on-primary-fixed-variant": "#00530e",
+                    "surface-container-lowest": "#0e0e0e",
+                    "secondary-fixed-dim": "#69df5c",
+                    "on-tertiary": "#003a00",
+                    "secondary": "#69df5c",
+                    "inverse-on-surface": "#303030",
+                    "on-surface": "#e2e2e2",
+                    "on-surface-variant": "#b9ccb2",
+                    "error": "#ffb4ab",
+                    "primary-container": "#00ff41"
+            },
+            "fontFamily": {
+                    "mono": ["JetBrains Mono", "monospace"],
+                    "sans": ["Inter", "sans-serif"]
+            }
+          }
+        }
+      }
+    </script>
+
+    <style>
+        body {
+            background-color: #000000;
+            overflow-x: hidden;
+            color: #00FF41;
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Scanline Effect */
+        body::before {
+            content: " ";
+            display: block;
+            position: fixed;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+            z-index: 9999;
+            background-size: 100% 2px, 3px 100%;
+            pointer-events: none;
+        }
+
+        /* Digital Rain Canvas */
+        #matrix-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.12;
+        }
+
+        .terminal-window {
+            border: 1px solid #008F11;
+            background-color: rgba(5, 12, 5, 0.92);
+            box-shadow: 0 0 20px rgba(0, 255, 65, 0.15);
+        }
+
+        .terminal-header {
+            background-color: #003B00;
+            padding: 8px 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            color: #00FF41;
+            border-bottom: 1px solid #008F11;
+        }
+
+        .glitch-text {
+            text-shadow: 0 0 8px rgba(0, 255, 65, 0.8);
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+            color: #00FF41;
+            vertical-align: middle;
+        }
+
+        .policy-section h2 {
+            font-family: 'JetBrains Mono', monospace;
+            color: #00FF41;
+            font-size: 1.25rem;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+            text-transform: uppercase;
+            margin-top: 2rem;
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            border-bottom: 1px dashed #3b4b37;
+            padding-bottom: 0.5rem;
+        }
+
+        .policy-section p, .policy-section ul {
+            color: #b9ccb2;
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+
+        .policy-section ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .policy-section ul li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .policy-section ul li::before {
+            content: ">";
+            position: absolute;
+            left: 0;
+            color: #00FF41;
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: bold;
+        }
+
+        .highlight-box {
+            background-color: rgba(0, 59, 0, 0.4);
+            border-left: 3px solid #00FF41;
+            padding: 1rem 1.25rem;
+            margin: 1.25rem 0;
+            border-radius: 0px;
+        }
+    </style>
+</head>
+<body class="dark selection:bg-on-primary-container selection:text-white min-h-screen flex flex-col justify-between">
+    <canvas id="matrix-canvas"></canvas>
+
+    <!-- Navigation Bar -->
+    <nav class="fixed top-0 w-full z-50 flex justify-between items-center px-6 md:px-12 py-4 bg-black/85 border-b border-outline-variant backdrop-blur-md">
+        <a href="index.html" class="flex items-center gap-2 group">
+            <span class="material-symbols-outlined group-hover:translate-x-[-2px] transition-transform">arrow_back</span>
+            <span class="font-mono text-lg font-bold text-secondary tracking-tighter drop-shadow-[0_0_8px_rgba(105,223,92,0.8)]">NGONAROID</span>
+        </a>
+        <div class="flex items-center gap-3">
+            <span class="font-mono text-xs text-outline uppercase hidden sm:inline-block">APP_ID: ECHO_8583</span>
+            <a href="https://ngonar.com" class="border border-secondary/50 text-secondary hover:border-secondary hover:bg-secondary/10 px-3 py-1 font-mono text-xs transition-all">HOME</a>
+        </div>
+    </nav>
+
+    <!-- Main Content Container -->
+    <main class="pt-24 pb-16 px-4 md:px-8 max-w-4xl mx-auto w-full flex-grow">
+        <!-- Terminal Window Card -->
+        <div class="terminal-window my-6">
+            <!-- Window Header -->
+            <div class="terminal-header">
+                <div class="flex items-center gap-2">
+                    <div class="flex gap-1.5">
+                        <div class="w-2.5 h-2.5 rounded-full bg-red-600/80"></div>
+                        <div class="w-2.5 h-2.5 rounded-full bg-yellow-600/80"></div>
+                        <div class="w-2.5 h-2.5 rounded-full bg-green-600/80"></div>
+                    </div>
+                    <span class="ml-2">ECHO_8583 // PRIVACY_POLICY.md</span>
+                </div>
+                <div class="text-outline text-[11px]">STATUS: 200_OK</div>
+            </div>
+
+            <!-- Policy Body -->
+            <div class="p-6 md:p-10 policy-section">
+                <!-- Header Title Section -->
+                <div class="mb-8 border-b border-outline-variant/60 pb-6">
+                    <div class="flex flex-wrap items-center gap-3 mb-3">
+                        <span class="bg-primary-container text-black font-mono font-bold text-xs px-2.5 py-0.5 uppercase tracking-wider">OFFICIAL POLICY</span>
+                        <span class="font-mono text-xs text-outline">App Name: <strong class="text-secondary">echo 8583</strong></span>
+                        <span class="font-mono text-xs text-outline">Target Platform: <strong class="text-secondary">Android</strong></span>
+                    </div>
+                    <h1 class="font-mono text-3xl md:text-4xl font-extrabold text-primary-container tracking-tight glitch-text mb-3">
+                        PRIVACY POLICY
+                    </h1>
+                    <p class="font-mono text-xs text-outline">
+                        Effective Date: July 20, 2026 &nbsp;|&nbsp; Last Updated: July 20, 2026 &nbsp;|&nbsp; Document URI: <a href="https://ngonar.com/echo8583-privacy.html" class="underline text-secondary hover:text-primary">https://ngonar.com/echo8583-privacy.html</a>
+                    </p>
+                </div>
+
+                <!-- Highlight Banner -->
+                <div class="highlight-box font-mono text-sm">
+                    <div class="flex items-center gap-2 font-bold text-secondary mb-1">
+                        <span class="material-symbols-outlined text-sm">shield</span>
+                        <span>LOCAL PROCESSING GUARANTEE</span>
+                    </div>
+                    <p class="text-on-surface-variant text-xs md:text-sm m-0">
+                        <strong>echo 8583</strong> operates entirely offline and processes all ISO 8583 message streams locally on your Android device. No financial payload data, message hex, bitmaps, or personal data leave your device.
+                    </p>
+                </div>
+
+                <!-- 1. Introduction -->
+                <h2><span class="material-symbols-outlined text-base">terminal</span> 1. Overview & Purpose</h2>
+                <p>
+                    <strong>echo 8583</strong> is an Android utility application designed for payment system developers, fintech engineers, and protocol analysts to parse, decode, inspect, and analyze <strong>ISO 8583</strong> financial transaction messages (MTI, bitmaps, DE1-DE128 fields, hex payloads, and sub-elements).
+                </p>
+                <p>
+                    We value your privacy and data security. This Privacy Policy explains how <strong>echo 8583</strong> handles data when you install and use the application on your Android device.
+                </p>
+
+                <!-- 2. Data Collection -->
+                <h2><span class="material-symbols-outlined text-base">database</span> 2. Data Collection & Processing</h2>
+                <p>
+                    <strong>We do NOT collect, store, or transmit any personal information or transaction payload data.</strong>
+                </p>
+                <ul>
+                    <li><strong>No Personal Identifiable Information (PII):</strong> The application does not collect your name, email address, phone number, location, device contacts, or online identity.</li>
+                    <li><strong>ISO 8583 Message Payload Data:</strong> Any raw ISO 8583 hex/ASCII payloads, field values, MTI codes, or bitmap structures pasted, entered, or loaded into echo 8583 are processed <em>exclusively in-memory on your local Android device</em>.</li>
+                    <li><strong>Zero Cloud Transmission:</strong> Payload data is never transmitted to remote servers, external APIs, cloud databases, or third-party analytical endpoints.</li>
+                    <li><strong>No Telemetry or User Tracking:</strong> echo 8583 does not log user actions, parse history, or behavioral metrics to any external server.</li>
+                </ul>
+
+                <!-- 3. Sensitive Data & Security -->
+                <h2><span class="material-symbols-outlined text-base">lock</span> 3. Financial Payload & Security Advice</h2>
+                <p>
+                    ISO 8583 messages standardly carry payment network data elements (such as MTI, processing codes, transaction amounts, STAN, RRN, or test payloads).
+                </p>
+                <p>
+                    Because <strong>echo 8583</strong> executes parser logic entirely within your device's local execution sandbox:
+                </p>
+                <ul>
+                    <li>No financial payload or sensitive field value is exposed to external networks by the application.</li>
+                    <li>We recommend developers and analysts use test data, masked Primary Account Numbers (PANs), and synthetic test dumps when inspecting protocol messages during development.</li>
+                </ul>
+
+                <!-- 4. Device Permissions -->
+                <h2><span class="material-symbols-outlined text-base">key</span> 4. Android Device Permissions</h2>
+                <p>
+                    <strong>echo 8583</strong> requests only the minimal permissions necessary to perform user-initiated operations:
+                </p>
+                <ul>
+                    <li><strong>Clipboard Access:</strong> Allows you to conveniently paste raw message hex/ASCII streams directly into the parser or copy decoded data element tables to your clipboard. Clipboard data is processed in volatile device memory only.</li>
+                    <li><strong>Storage / File Selection (Optional):</strong> If you choose to open or save custom message definition specifications or raw message dump log files, access is restricted solely to the specific files you explicitly select via the standard system file picker.</li>
+                    <li><strong>Network Access:</strong> echo 8583 does not require active internet connection to execute parser operations.</li>
+                </ul>
+
+                <!-- 5. Third-Party Services -->
+                <h2><span class="material-symbols-outlined text-base">extension</span> 5. Third-Party Services & SDKs</h2>
+                <p>
+                    <strong>echo 8583</strong> does not include third-party advertising SDKs, tracking pixels, or monetization analytics frameworks (such as AdMob, Facebook SDK, or commercial ad networks).
+                </p>
+                <p>
+                    The application is distributed via Google Play Store, which may independently process standard distribution metrics (e.g. app download counts, installation telemetry, and crash reports governed by Google's Privacy Policy).
+                </p>
+
+                <!-- 6. Children's Privacy -->
+                <h2><span class="material-symbols-outlined text-base">child_care</span> 6. Children's Privacy</h2>
+                <p>
+                    <strong>echo 8583</strong> is a technical developer utility and is not directed at or designed for children under 13 years of age. We do not knowingly collect information from children.
+                </p>
+
+                <!-- 7. Policy Updates -->
+                <h2><span class="material-symbols-outlined text-base">update</span> 7. Changes to This Privacy Policy</h2>
+                <p>
+                    We may update this Privacy Policy from time to time to reflect enhancements to application features or regulatory requirements. Any updates will be published directly on this page with an updated effective date.
+                </p>
+                <p class="font-mono text-xs text-outline">
+                    Current Version Canonical URL: <a href="https://ngonar.com/echo8583-privacy.html" class="text-secondary hover:underline">https://ngonar.com/echo8583-privacy.html</a>
+                </p>
+
+                <!-- 8. Contact Information -->
+                <h2><span class="material-symbols-outlined text-base">mail</span> 8. Contact Us</h2>
+                <p>
+                    If you have any questions, concerns, or inquiries regarding this Privacy Policy or <strong>echo 8583</strong>, please reach out to us:
+                </p>
+                <div class="border border-outline-variant bg-surface-container-lowest p-4 font-mono text-xs space-y-1">
+                    <p class="text-secondary"><strong>Developer / Organization:</strong> NGONAROID</p>
+                    <p class="text-on-surface-variant"><strong>Website:</strong> <a href="https://ngonar.com" class="text-secondary hover:underline">https://ngonar.com</a></p>
+                    <p class="text-on-surface-variant"><strong>App:</strong> echo 8583 (Android)</p>
+                    <p class="text-on-surface-variant"><strong>Privacy Policy URL:</strong> <a href="https://ngonar.com/echo8583-privacy.html" class="text-secondary hover:underline">https://ngonar.com/echo8583-privacy.html</a></p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="w-full py-8 px-6 md:px-12 bg-surface-container-lowest border-t border-outline-variant flex flex-col md:flex-row justify-between items-center gap-4">
+        <div class="flex flex-col items-center md:items-start gap-1">
+            <span class="font-mono text-sm font-bold text-secondary">NGONAROID</span>
+            <p class="font-mono text-[11px] text-outline uppercase tracking-wider">SYSTEM_USER@NGONAROID:~$ ECHO_8583_PRIVACY_VERIFIED</p>
+        </div>
+        <div class="flex items-center gap-6">
+            <a class="font-mono text-xs text-outline hover:text-primary transition-colors uppercase tracking-tighter" href="index.html">INDEX</a>
+            <a class="font-mono text-xs text-outline hover:text-primary transition-colors uppercase tracking-tighter" href="https://ngonar.com/echo8583-privacy.html">PRIVACY_POLICY</a>
+            <a class="font-mono text-xs text-outline hover:text-primary transition-colors uppercase tracking-tighter" href="https://github.com/ngonar" target="_blank">GITHUB</a>
+        </div>
+    </footer>
+
+    <!-- Matrix Background Script -->
+    <script>
+        const canvas = document.getElementById('matrix-canvas');
+        const ctx = canvas.getContext('2d');
+
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const katakana = 'アァカサタナハマヤャラワガザダバパイィキシチニヒミリヰギジヂビピウゥクスツヌフムユュルグズブヅプエェケセテネヘメレヱゲゼデベペオォコソトノホモヨョロヲゴゾドボポヴッン';
+        const latin = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+        const alphabet = katakana + latin;
+
+        const fontSize = 16;
+        const columns = Math.floor(canvas.width / fontSize);
+
+        const rainDrops = [];
+        for (let x = 0; x < columns; x++) {
+            rainDrops[x] = Math.floor(Math.random() * -50);
+        }
+
+        const draw = () => {
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            ctx.fillStyle = '#0F0';
+            ctx.font = fontSize + 'px JetBrains Mono';
+
+            for (let i = 0; i < rainDrops.length; i++) {
+                const text = alphabet.charAt(Math.floor(Math.random() * alphabet.length));
+                ctx.fillText(text, i * fontSize, rainDrops[i] * fontSize);
+
+                if (rainDrops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                    rainDrops[i] = 0;
+                }
+                rainDrops[i]++;
+            }
+        };
+
+        setInterval(draw, 33);
+
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+    </script>
+</body>
+</html>
