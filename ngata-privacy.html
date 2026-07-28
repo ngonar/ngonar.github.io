@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Privacy Policy - Ngata | NGONAROID</title>
+    <meta name="description" content="Privacy Policy for Ngata - Local Crossword Game Application. Learn how Ngata protects your privacy with 100% local calculation and zero data collection."/>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-primary-container": "#007117",
+                    "outline-variant": "#3b4b37",
+                    "tertiary": "#edffe2",
+                    "on-primary-fixed": "#002203",
+                    "primary": "#ebffe2",
+                    "on-secondary-fixed-variant": "#005306",
+                    "outline": "#84967e",
+                    "on-tertiary-container": "#366d2c",
+                    "background": "#131313",
+                    "on-error": "#690005",
+                    "error-container": "#93000a",
+                    "on-background": "#e2e2e2",
+                    "surface-variant": "#353535",
+                    "on-error-container": "#ffdad6",
+                    "surface-bright": "#393939",
+                    "surface-container": "#1f1f1f",
+                    "inverse-primary": "#006e16",
+                    "on-tertiary-fixed": "#002200",
+                    "secondary-fixed": "#85fd75",
+                    "tertiary-container": "#afed9d",
+                    "surface-container-low": "#1b1b1b",
+                    "on-secondary": "#003a03",
+                    "on-secondary-container": "#003202",
+                    "tertiary-fixed": "#b5f3a2",
+                    "surface-container-high": "#2a2a2a",
+                    "on-tertiary-fixed-variant": "#1b5114",
+                    "surface-container-highest": "#353535",
+                    "surface-dim": "#131313",
+                    "tertiary-fixed-dim": "#99d688",
+                    "secondary-container": "#2ca62a",
+                    "on-primary": "#003907",
+                    "primary-fixed-dim": "#00e639",
+                    "surface": "#131313",
+                    "inverse-surface": "#e2e2e2",
+                    "primary-fixed": "#72ff70",
+                    "on-secondary-fixed": "#002201",
+                    "surface-tint": "#00e639",
+                    "on-primary-fixed-variant": "#00530e",
+                    "surface-container-lowest": "#0e0e0e",
+                    "secondary-fixed-dim": "#69df5c",
+                    "on-tertiary": "#003a00",
+                    "secondary": "#69df5c",
+                    "inverse-on-surface": "#303030",
+                    "on-surface": "#e2e2e2",
+                    "on-surface-variant": "#b9ccb2",
+                    "error": "#ffb4ab",
+                    "primary-container": "#00ff41"
+            },
+            "fontFamily": {
+                    "mono": ["JetBrains Mono", "monospace"],
+                    "sans": ["Inter", "sans-serif"]
+            }
+          }
+        }
+      }
+    </script>
+
+    <style>
+        body {
+            background-color: #000000;
+            overflow-x: hidden;
+            color: #00FF41;
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Scanline Effect */
+        body::before {
+            content: " ";
+            display: block;
+            position: fixed;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+            z-index: 9999;
+            background-size: 100% 2px, 3px 100%;
+            pointer-events: none;
+        }
+
+        /* Digital Rain Canvas */
+        #matrix-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.12;
+        }
+
+        .terminal-window {
+            border: 1px solid #008F11;
+            background-color: rgba(5, 12, 5, 0.92);
+            box-shadow: 0 0 20px rgba(0, 255, 65, 0.15);
+        }
+
+        .terminal-header {
+            background-color: #003B00;
+            padding: 8px 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            color: #00FF41;
+            border-bottom: 1px solid #008F11;
+        }
+
+        .glitch-text {
+            text-shadow: 0 0 8px rgba(0, 255, 65, 0.8);
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+            color: #00FF41;
+            vertical-align: middle;
+        }
+
+        .policy-section h2 {
+            font-family: 'JetBrains Mono', monospace;
+            color: #00FF41;
+            font-size: 1.25rem;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+            text-transform: uppercase;
+            margin-top: 2rem;
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            border-bottom: 1px dashed #3b4b37;
+            padding-bottom: 0.5rem;
+        }
+
+        .policy-section p, .policy-section ul {
+            color: #b9ccb2;
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+
+        .policy-section ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .policy-section ul li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .policy-section ul li::before {
+            content: ">";
+            position: absolute;
+            left: 0;
+            color: #00FF41;
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: bold;
+        }
+
+        .highlight-box {
+            background-color: rgba(0, 59, 0, 0.4);
+            border-left: 3px solid #00FF41;
+            padding: 1rem 1.25rem;
+            margin: 1.25rem 0;
+            border-radius: 0px;
+        }
+    </style>
+</head>
+<body class="dark selection:bg-on-primary-container selection:text-white min-h-screen flex flex-col justify-between">
+    <canvas id="matrix-canvas"></canvas>
+
+    <!-- Navigation Bar -->
+    <nav class="fixed top-0 w-full z-50 flex justify-between items-center px-6 md:px-12 py-4 bg-black/85 border-b border-outline-variant backdrop-blur-md">
+        <a href="index.html" class="flex items-center gap-2 group">
+            <span class="material-symbols-outlined group-hover:translate-x-[-2px] transition-transform">arrow_back</span>
+            <span class="font-mono text-lg font-bold text-secondary tracking-tighter drop-shadow-[0_0_8px_rgba(105,223,92,0.8)]">NGONAROID</span>
+        </a>
+        <div class="flex items-center gap-3">
+            <span class="font-mono text-xs text-outline uppercase hidden sm:inline-block">APP_ID: NGATA</span>
+            <a href="https://ngonar.com" class="border border-secondary/50 text-secondary hover:border-secondary hover:bg-secondary/10 px-3 py-1 font-mono text-xs transition-all">HOME</a>
+        </div>
+    </nav>
+
+    <!-- Main Content Container -->
+    <main class="pt-24 pb-16 px-4 md:px-8 max-w-4xl mx-auto w-full flex-grow">
+        <!-- Terminal Window Card -->
+        <div class="terminal-window my-6">
+            <!-- Window Header -->
+            <div class="terminal-header">
+                <div class="flex items-center gap-2">
+                    <div class="flex gap-1.5">
+                        <div class="w-2.5 h-2.5 rounded-full bg-red-600/80"></div>
+                        <div class="w-2.5 h-2.5 rounded-full bg-yellow-600/80"></div>
+                        <div class="w-2.5 h-2.5 rounded-full bg-green-600/80"></div>
+                    </div>
+                    <span class="ml-2">NGATA // PRIVACY_POLICY.md</span>
+                </div>
+                <div class="text-outline text-[11px]">STATUS: 200_OK</div>
+            </div>
+
+            <!-- Policy Body -->
+            <div class="p-6 md:p-10 policy-section">
+                <!-- Header Title Section -->
+                <div class="mb-8 border-b border-outline-variant/60 pb-6">
+                    <div class="flex flex-wrap items-center gap-3 mb-3">
+                        <span class="bg-primary-container text-black font-mono font-bold text-xs px-2.5 py-0.5 uppercase tracking-wider">OFFICIAL POLICY</span>
+                        <span class="font-mono text-xs text-outline">App Name: <strong class="text-secondary">Ngata</strong></span>
+                        <span class="font-mono text-xs text-outline">Target Platform: <strong class="text-secondary">Crossword Game</strong></span>
+                    </div>
+                    <h1 class="font-mono text-3xl md:text-4xl font-extrabold text-primary-container tracking-tight glitch-text mb-3">
+                        PRIVACY POLICY
+                    </h1>
+                    <p class="font-mono text-xs text-outline">
+                        Effective Date: July 28, 2026 &nbsp;|&nbsp; Last Updated: July 28, 2026 &nbsp;|&nbsp; Document URI: <a href="https://ngonar.com/ngata-privacy.html" class="underline text-secondary hover:text-primary">https://ngonar.com/ngata-privacy.html</a>
+                    </p>
+                </div>
+
+                <!-- Highlight Banner -->
+                <div class="highlight-box font-mono text-sm">
+                    <div class="flex items-center gap-2 font-bold text-secondary mb-1">
+                        <span class="material-symbols-outlined text-sm">shield</span>
+                        <span>100% LOCAL PROCESSING & ZERO REGISTRATION GUARANTEE</span>
+                    </div>
+                    <p class="text-on-surface-variant text-xs md:text-sm m-0">
+                        <strong>Ngata</strong> is a standalone crossword game designed with privacy as a foundational principle. All game calculations, puzzle validations, scorekeeping, and board generation occur <strong>100% locally on your device</strong>. No registration is required, and no user data is ever collected or submitted to any server.
+                    </p>
+                </div>
+
+                <!-- 1. Introduction -->
+                <h2><span class="material-symbols-outlined text-base">grid_on</span> 1. Overview & Purpose</h2>
+                <p>
+                    <strong>Ngata</strong> is an interactive crossword game application designed for word puzzle enthusiasts. The application allows users to solve, generate, and enjoy crossword puzzles in a clean, distraction-free environment.
+                </p>
+                <p>
+                    We believe your gaming experience and personal privacy should be completely secure. This Privacy Policy outlines how <strong>Ngata</strong> operates to guarantee your privacy safety.
+                </p>
+
+                <!-- 2. No Data Collection -->
+                <h2><span class="material-symbols-outlined text-base">database</span> 2. No Data Collection or Transmission</h2>
+                <p>
+                    <strong>Ngata does NOT collect, store, transmit, or share any personal or non-personal information.</strong>
+                </p>
+                <ul>
+                    <li><strong>No Registration Required:</strong> You do not need to create an account, sign in, or provide an email address, name, phone number, or any personal details to play Ngata.</li>
+                    <li><strong>No Remote Server Connections:</strong> All puzzle engines, word verification algorithms, scoring calculations, and timer logic execute completely on your device. Ngata does not transmit game data, grid states, or solutions to any server.</li>
+                    <li><strong>No Analytics or Tracking:</strong> Ngata does not utilize tracking cookies, telemetry SDKs, device fingerprinting, or user analytics frameworks to monitor your activity.</li>
+                    <li><strong>No Location or Contact Access:</strong> The app does not access your location, contacts, camera, microphone, or media files.</li>
+                </ul>
+
+                <!-- 3. Local Storage -->
+                <h2><span class="material-symbols-outlined text-base">sd_card</span> 3. Local Storage on Device</h2>
+                <p>
+                    To enhance your playing experience, <strong>Ngata</strong> uses your device's local application storage (such as local database, shared preferences, or local storage) exclusively to store:
+                </p>
+                <ul>
+                    <li>Your ongoing game progress (e.g. filled letters and saved grid state).</li>
+                    <li>Game settings (e.g. sound effects toggle, dark mode, difficulty preferences).</li>
+                    <li>Local high scores and puzzle completion stats.</li>
+                </ul>
+                <p>
+                    This data remains strictly on your device. It is never uploaded to any cloud server. You can clear this data at any time by clearing the application data in your device settings or uninstalling the app.
+                </p>
+
+                <!-- 4. Third-Party Services -->
+                <h2><span class="material-symbols-outlined text-base">extension</span> 4. Third-Party Services & Advertising</h2>
+                <p>
+                    <strong>Ngata contains no third-party advertisements, advertising trackers, or data broker SDKs.</strong>
+                </p>
+                <p>
+                    If downloaded via official app stores (such as Google Play Store or Apple App Store), standard distribution metrics (e.g. app download totals and system-level crash logs managed by Google or Apple) are governed independently by the respective platform's privacy policy.
+                </p>
+
+                <!-- 5. Children's Privacy -->
+                <h2><span class="material-symbols-outlined text-base">child_care</span> 5. Children's Privacy</h2>
+                <p>
+                    Because <strong>Ngata</strong> collects zero personal data from any user, it is fully compliant with children's privacy regulations including COPPA (Children's Online Privacy Protection Act) and GDPR. Ngata is safe for users of all ages, including children under 13.
+                </p>
+
+                <!-- 6. Policy Updates -->
+                <h2><span class="material-symbols-outlined text-base">update</span> 6. Changes to This Privacy Policy</h2>
+                <p>
+                    We may update this Privacy Policy periodically to reflect app updates or regulatory standards. Any modifications will be updated directly on this page with a revised effective date.
+                </p>
+                <p class="font-mono text-xs text-outline">
+                    Current Version Canonical URL: <a href="https://ngonar.com/ngata-privacy.html" class="text-secondary hover:underline">https://ngonar.com/ngata-privacy.html</a>
+                </p>
+
+                <!-- 7. Contact Information -->
+                <h2><span class="material-symbols-outlined text-base">mail</span> 7. Contact Us</h2>
+                <p>
+                    If you have any questions or feedback regarding this Privacy Policy or <strong>Ngata</strong>, please contact us:
+                </p>
+                <div class="border border-outline-variant bg-surface-container-lowest p-4 font-mono text-xs space-y-1">
+                    <p class="text-secondary"><strong>Developer / Organization:</strong> NGONAROID</p>
+                    <p class="text-on-surface-variant"><strong>Website:</strong> <a href="https://ngonar.com" class="text-secondary hover:underline">https://ngonar.com</a></p>
+                    <p class="text-on-surface-variant"><strong>App Name:</strong> Ngata (Crossword Game)</p>
+                    <p class="text-on-surface-variant"><strong>Privacy Policy URL:</strong> <a href="https://ngonar.com/ngata-privacy.html" class="text-secondary hover:underline">https://ngonar.com/ngata-privacy.html</a></p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="w-full py-8 px-6 md:px-12 bg-surface-container-lowest border-t border-outline-variant flex flex-col md:flex-row justify-between items-center gap-4">
+        <div class="flex flex-col items-center md:items-start gap-1">
+            <span class="font-mono text-sm font-bold text-secondary">NGONAROID</span>
+            <p class="font-mono text-[11px] text-outline uppercase tracking-wider">SYSTEM_USER@NGONAROID:~$ NGATA_PRIVACY_VERIFIED</p>
+        </div>
+        <div class="flex items-center gap-6">
+            <a class="font-mono text-xs text-outline hover:text-primary transition-colors uppercase tracking-tighter" href="index.html">INDEX</a>
+            <a class="font-mono text-xs text-outline hover:text-primary transition-colors uppercase tracking-tighter" href="https://ngonar.com/ngata-privacy.html">PRIVACY_POLICY</a>
+            <a class="font-mono text-xs text-outline hover:text-primary transition-colors uppercase tracking-tighter" href="https://github.com/ngonar" target="_blank">GITHUB</a>
+        </div>
+    </footer>
+
+    <!-- Matrix Background Script -->
+    <script>
+        const canvas = document.getElementById('matrix-canvas');
+        const ctx = canvas.getContext('2d');
+
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const katakana = 'アァカサタナハマヤャラワガザダバパイィキシチニヒミリヰギジヂビピウゥクスツヌフムユュルグズブヅプエェケセテネヘメレヱゲゼデベペオォコソトノホモヨョロヲゴゾドボポヴッン';
+        const latin = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+        const alphabet = katakana + latin;
+
+        const fontSize = 16;
+        const columns = Math.floor(canvas.width / fontSize);
+
+        const rainDrops = [];
+        for (let x = 0; x < columns; x++) {
+            rainDrops[x] = Math.floor(Math.random() * -50);
+        }
+
+        const draw = () => {
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            ctx.fillStyle = '#0F0';
+            ctx.font = fontSize + 'px JetBrains Mono';
+
+            for (let i = 0; i < rainDrops.length; i++) {
+                const text = alphabet.charAt(Math.floor(Math.random() * alphabet.length));
+                ctx.fillText(text, i * fontSize, rainDrops[i] * fontSize);
+
+                if (rainDrops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                    rainDrops[i] = 0;
+                }
+                rainDrops[i]++;
+            }
+        };
+
+        setInterval(draw, 33);
+
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+    </script>
+</body>
+</html>
